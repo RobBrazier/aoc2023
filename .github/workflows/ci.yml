@@ -1,6 +1,6 @@
 name: Continuous Integration
 
-on: push
+# on: push
 
 env:
     CARGO_TERM_COLOR: always
@@ -15,14 +15,14 @@ jobs:
               uses: actions/cache@v3
               continue-on-error: false
               with:
-                path: |
-                    ~/.cargo/bin/
-                    ~/.cargo/registry/index/
-                    ~/.cargo/registry/cache/
-                    ~/.cargo/git/db/
-                    target/
-                key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-                restore-keys: ${{ runner.os }}-cargo-
+                  path: |
+                      ~/.cargo/bin/
+                      ~/.cargo/registry/index/
+                      ~/.cargo/registry/cache/
+                      ~/.cargo/git/db/
+                      target/
+                  key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+                  restore-keys: ${{ runner.os }}-cargo-
             - name: cargo test
               run: cargo test
             # uncomment to enable clippy linter
