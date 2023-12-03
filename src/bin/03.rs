@@ -124,10 +124,10 @@ pub fn part_two(input: &str) -> Option<u32> {
             .cloned()
             .collect();
         for gear in gear_symbols {
-            if gears.contains_key(&gear.position) {
-                gears.get_mut(&gear.position).unwrap().push(num.value);
+            if let std::collections::hash_map::Entry::Vacant(e) = gears.entry(gear.position) {
+                e.insert(vec![num.value]);
             } else {
-                gears.insert(gear.position, vec![num.value]);
+                gears.get_mut(&gear.position).unwrap().push(num.value);
             }
         }
     }
