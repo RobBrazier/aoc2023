@@ -131,7 +131,7 @@ pub fn part_two(input: &str) -> Option<u32> {
             }
         }
     }
-    for (key, numbers) in gears.iter() {
+    for (_, numbers) in gears.iter() {
         if numbers.len() == 2 {
             // println!("numbers: {:?}, key: {:?}", numbers, key);
             result += numbers[0] * numbers[1];
