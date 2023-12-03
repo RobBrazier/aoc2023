@@ -28,7 +28,7 @@ fn parse(input: &str) -> (Vec<Number>, Vec<Symbol>) {
         while let Some(c) = characters.next() {
             // println!("x: {}, char: {}", x, c);
             if characters.peek().is_none() || !c.is_ascii_digit() {
-                println!("pointer: {:?}, char: {:?}", cursor, c);
+                // println!("pointer: {:?}, char: {:?}", cursor, c);
                 if c != '.' && !c.is_ascii_digit() {
                     // println!("adding symbol {}", c);
                     symbols.push(Symbol {
@@ -99,10 +99,10 @@ pub fn part_one(input: &str) -> Option<u32> {
     for num in numbers {
         let symbols_around = get_symbols_at_line(&symbols, &num);
         if !symbols_around.is_empty() {
-            println!("number: {:?} has symbols: {:?}", num, symbols_around);
+            // println!("number: {:?} has symbols: {:?}", num, symbols_around);
             result += num.value;
         } else {
-            println!("number {:?} has no symbols", num);
+            // println!("number {:?} has no symbols", num);
         }
     }
 
@@ -133,7 +133,7 @@ pub fn part_two(input: &str) -> Option<u32> {
     }
     for (key, numbers) in gears.iter() {
         if numbers.len() == 2 {
-            println!("numbers: {:?}, key: {:?}", numbers, key);
+            // println!("numbers: {:?}, key: {:?}", numbers, key);
             result += numbers[0] * numbers[1];
         }
     }
